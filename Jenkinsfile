@@ -26,6 +26,7 @@ pipeline {
                 sh "docker run -d -p ${PORT}:80 --name $CONTAINER_NAME $IMAGE_NAME"
             }
         }
+        
 
         stage('Check Running Container') {
             steps {
