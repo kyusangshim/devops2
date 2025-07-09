@@ -14,7 +14,6 @@ pipeline {
             }
         }
     }
-
     post {
         success {
             echo "✅ 배포 성공!"
