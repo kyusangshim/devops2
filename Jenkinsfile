@@ -16,17 +16,17 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh "sudo docker build -t $IMAGE_NAME ."
+                sh "docker build -t $IMAGE_NAME ."
             }
         }
 
         stage('Deploy') {
             steps {
-                sh "sudo docker rm -f $CONTAINER_NAME || true"
-                sh "sudo docker run -d -p ${PORT}:80 --name $CONTAINER_NAME $IMAGE_NAME"
+                sh "docker rm -f $CONTAINER_NAME || true"
+                sh "docker run -d -p ${PORT}:80 --name $CONTAINER_NAME $IMAGE_NAME"
             }
         }
-
+        
 
         stage('Check Running Container') {
             steps {
